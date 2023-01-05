@@ -11,4 +11,21 @@ export async function index (ctx) {
     }
   }
 
+  export async function create (ctx) {
+    try {
+      console.log(ctx.request.body)
+      const animeValidationSchema = Joi.object({
+        firstname: Joi.string().required(),
+        lastname: Joi.string().required(),
+        birthdate: Joi.date()
+      })
   
+      const { error, value } = animeValidationSchema.validate(ctx.request.body)
+      if(error) throw new Error(error)
+      console.log('No error found continuing the process', value);
+      const newanime = await Anime.create(value)
+      ctx.ok(newanime)
+    } catch(e) {
+      ctx.badRequest({ message: e.message })
+    }
+  }
