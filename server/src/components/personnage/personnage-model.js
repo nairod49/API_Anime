@@ -1,4 +1,3 @@
-import { date, string } from "joi"
 import mongoose, { trusted } from "mongoose"
 
 const { Schema } = mongoose
@@ -28,3 +27,5 @@ const personnageSchema = new Schema({
 })
 
 const Personnage = mongoose.model('Personnage', personnageSchema)
+
+export default Personnage
