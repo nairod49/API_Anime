@@ -1,4 +1,4 @@
-import Anime from '#components/anime/anime-model.js'
+import Anime from '#components/anime/anime-models.js'
 import Joi from 'joi'
 
 
@@ -15,9 +15,18 @@ export async function index (ctx) {
     try {
       console.log(ctx.request.body)
       const animeValidationSchema = Joi.object({
-        firstname: Joi.string().required(),
-        lastname: Joi.string().required(),
-        birthdate: Joi.date()
+        id: Joi.string().required(),
+        images: Joi.string().required(),
+        title: Joi.string().required(),
+        episode: Joi.number().required(),
+        statut: Joi.string().required(),
+        date_debut: Joi.date().required(),
+        date_fin: Joi.date(),
+        duree: Joi.number().required(),
+        note:Joi.number(),
+        rank:Joi.number(),
+        synopsis:Joi.string(),
+        streaming:Joi.string(),
       })
   
       const { error, value } = animeValidationSchema.validate(ctx.request.body)

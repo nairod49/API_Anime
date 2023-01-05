@@ -1,4 +1,3 @@
-import { date, string } from "joi"
 import mongoose, { trusted } from "mongoose"
 
 const { Schema } = mongoose
@@ -57,3 +56,6 @@ const animeSchema = new Schema({
 })
 
 const Anime = mongoose.model('Anime', animeSchema)
+
+
+export default Anime

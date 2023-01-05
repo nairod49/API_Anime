@@ -17,6 +17,6 @@ app
   .use(API_V1_ROUTER.allowedMethods())
 
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5004
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
