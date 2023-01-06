@@ -1,6 +1,12 @@
-<p>call-anime-api works!</p>
-{{ allAnime}}
-
-<div class="container" *ngFor="let anime of allAnime.data">
-    <p>{{ anime.title }}</p>
+<div class="container">
+    <div class="col-sm-4 display-card justify-content-around">
+        <div class="card" *ngFor="let anime of allAnime.data" style="width: 18rem;">
+            <img class="card-img-top" src="{{ anime.images.jpg.image_url }}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ anime.title }}</h5>
+                <p class="card-text">{{ anime.synopsis }}</p>
+                <a href="#" class="btn btn-primary">Add on liste</a>
+            </div>
+        </div>
+    </div>
 </div>

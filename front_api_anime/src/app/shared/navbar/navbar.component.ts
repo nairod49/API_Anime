@@ -6,22 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-links!: any;
   constructor() { }
 
-  ngOnInit(): void {
-    this.links = [
-      {
-        name: "home",
-        icon: "fas fa-home fa-lg",
-        link: ''
-      },
-      {
-        name: "participants list",
-        icon: "fa-solid fa-address-book",
-        link: 'participant-list'
-      }
-    ]
-  }
+  ngOnInit(): void {}
 
 }
