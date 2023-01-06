@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './shared/footer/footer.component';
-import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { MapComponent } from './components/map/map.component';
     CallAnimeApiComponent,
     NavbarComponent,
     FooterComponent,
-    MapComponent,
   ],
   imports: [
     BrowserModule,
