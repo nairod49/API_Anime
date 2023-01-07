@@ -1,0 +1,15 @@
+.card{
+    margin: 2rem;
+    text-align: center;
+}
+
+.display-card{
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    text-align: center;
+}
+
+.container{
+    background-color: #FFF;
+}
