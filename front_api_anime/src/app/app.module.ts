@@ -8,6 +8,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './shared/footer/footer.component';
 import { MapsComponent } from './components/maps/maps.component';
+import { ListAnimeComponent } from './components/list-anime/list-anime.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { MapsComponent } from './components/maps/maps.component';
     NavbarComponent,
     FooterComponent,
     MapsComponent,
+    ListAnimeComponent,
   ],
   imports: [
     BrowserModule,
