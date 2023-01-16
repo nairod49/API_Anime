@@ -9,4 +9,26 @@
             </div>
         </div>
     </div>
+    <table class="table table-striped" >
+        <thead>
+            <tr>
+                <td>
+                    Cover
+                </td>
+                <td>
+                    Title
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let anime of allAnime.data">
+                <td>
+                    <img class="card-img-top" src="{{ anime.images.jpg.image_url }}" alt="Card image cap">
+                </td>
+                <td>
+                    <h5 class="card-title">{{ anime.title }}</h5>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

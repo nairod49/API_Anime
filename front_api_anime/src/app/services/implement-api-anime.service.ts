@@ -12,4 +12,8 @@ export class ImplementApiAnimeService {
   getAllAnime() {
     return this.httpclient.get(`${environment.animeUrlApi}/anime`);
   }
+
+  getAnimeDB() {
+    return this.httpclient.get(`${environment.apiAnime}/animes`)
+  }
 }

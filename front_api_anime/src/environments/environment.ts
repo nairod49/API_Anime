@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  animeUrlApi: "https://api.jikan.moe/v4"
+  animeUrlApi: "https://api.jikan.moe/v4",
+  apiAnime: "http://localhost:5004/api/v1"
 };
 
 /*
