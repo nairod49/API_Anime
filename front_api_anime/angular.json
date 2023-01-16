@@ -103,5 +103,8 @@
       }
     }
   },
-  "defaultProject": "front_api_anime"
+  "defaultProject": "front_api_anime",
+  "cli": {
+    "analytics": false
+  }
 }

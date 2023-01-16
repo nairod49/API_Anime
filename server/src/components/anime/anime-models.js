@@ -51,7 +51,14 @@ const animeSchema = new Schema({
 //streaming/?
     streaming:{
         type:String
+    },
+    longitude:{
+        type:Number
+    },
+    latitude:{
+        type:Number
     }
+
 
 })
 

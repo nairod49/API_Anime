@@ -20,11 +20,24 @@ export class MapsComponent implements AfterViewInit {
       minZoom: 3,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
-
+    this.addPoint(this.map);
     tiles.addTo(this.map);
   }
+
+  private addPoint(map: L.Map | L.LayerGroup<any>):void {
+    //appelle anime/:id/x & anime/:id/y
+    var myIcon = L.icon({
+      iconUrl: '../assets/my-icon.png',
+      
+    })
+    L.marker([48.862725,2.287592],{title:"miraculous ladybug paris", icon: myIcon , autoPan:true}).addTo(map);
+  }
+
   ngAfterViewInit(): void {
     this.initMap();
+   
   }
+
+  
 
 }

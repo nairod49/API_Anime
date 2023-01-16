@@ -27,6 +27,8 @@ export async function index (ctx) {
         rank:Joi.number(),
         synopsis:Joi.string(),
         streaming:Joi.string(),
+        longitude:Joi.number(),
+        latitude:Joi.number()
       })
   
       const { error, value } = animeValidationSchema.validate(ctx.request.body)
