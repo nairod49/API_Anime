@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Anime } from '../models/anime.models';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,18 @@ export class ImplementApiAnimeService {
   }
 
   getAnimeDB() {
-    return this.httpclient.get(`${environment.apiAnime}/animes`)
+    return this.httpclient.get(`${environment.apiAnime}/animes`);
+  }
+
+  addAnimeOnDB(anime: Anime) {
+    const headers = { 'content-type': 'application/json'} 
+    const body = anime;
+    console.log(body);
+    
+    return this.httpclient.post<any>(`${environment.apiAnime}/animes`,  body).subscribe(data => {body});
+  }
+
+  getAnime(id: any) {
+      return this.httpclient.get(`${environment.apiAnime}/animes/${id}`)
   }
 }

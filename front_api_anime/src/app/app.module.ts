@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './shared/footer/footer.component';
 import { MapsComponent } from './components/maps/maps.component';
 import { ListAnimeComponent } from './components/list-anime/list-anime.component';
+import { AnimeComponent } from './components/anime/anime.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ListAnimeComponent } from './components/list-anime/list-anime.component
     FooterComponent,
     MapsComponent,
     ListAnimeComponent,
+    AnimeComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,7 @@ export async function index (ctx) {
     try {
       console.log(ctx.request.body)
       const animeValidationSchema = Joi.object({
-        id: Joi.string().required(),
+        idAPI: Joi.number(),
         images: Joi.string().required(),
         title: Joi.string().required(),
         episode: Joi.number().required(),
@@ -36,5 +36,15 @@ export async function index (ctx) {
       ctx.ok(newanime)
     } catch(e) {
       ctx.badRequest({ message: e.message })
+    }
+  }
+
+  export async function id (ctx) {
+    try {
+      if(ctx.params.id.length <= 0) return ctx.notFound({ message: 'Id missing, list ressource not found' })
+      const list = await Anime.findById(ctx.params.id)
+      ctx.ok(list)
+    } catch (e) {
+      ctx.badRequest({ message: e.message })
     }
   }

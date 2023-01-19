@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <img src="{{anime.images}}" alt="">
+            <h1>{{anime.title}}</h1>
+            <form action="" method="post">
+                <label for="coordx" class="mt-4"> Les coordonnées x de la ville</label>
+                <input id="coordx" class="form-control" type="text" name="coordX" placeholder="Entrée les coordonnées x">
+                <label for="coordy" class="mt-4"> Les coordonnées y de la ville</label>
+                <input id="coordy" class="form-control" type="text" name="coordY" placeholder="Entrée les coordonnées y">
+                <button type="submit" class="btn btn-success mt-4">Enregistrer les coordonnées</button>
+            </form>
+        </div>
+        <div class="col-8 mt-4">
+            <div>
+                <h5>
+                    Trailer
+                </h5>
+                <a href="{{anime.streaming}}"> Link youtube !</a>
+                <h5 class="mt-4">Synopsis</h5>
+                <p>
+                    {{anime.synopsis}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

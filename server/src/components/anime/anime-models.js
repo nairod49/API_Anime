@@ -4,8 +4,8 @@ const { Schema } = mongoose
 
 const animeSchema = new Schema({
  //mal_id
-    id: {
-    type:String,
+    idAPI: {
+    type:Number,
     required: true
  },
  //images/jpg/url
