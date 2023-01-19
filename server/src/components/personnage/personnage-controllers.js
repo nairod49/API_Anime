@@ -9,6 +9,7 @@ export async function index (ctx) {
     } catch(e) {
       ctx.badRequest({ message: e.message })
     }
+    console.log("Affichage des perosnnages")
   }
 
   export async function create (ctx) {

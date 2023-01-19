@@ -9,6 +9,7 @@ export async function index (ctx) {
     } catch(e) {
       ctx.badRequest({ message: e.message })
     }
+    console.log("Afficheage de tout les anime")
   }
 
   export async function create (ctx) {
@@ -32,6 +33,7 @@ export async function index (ctx) {
       })
   
       const { error, value } = animeValidationSchema.validate(ctx.request.body)
+      
       if(error) throw new Error(error)
       console.log('No error found continuing the process', value);
       const newanime = await Anime.create(value)
@@ -39,6 +41,7 @@ export async function index (ctx) {
     } catch(e) {
       ctx.badRequest({ message: e.message })
     }
+    console.log("anime ajouter a la base de donnée")
   }
 
   export async function id (ctx) {
@@ -49,4 +52,6 @@ export async function index (ctx) {
     } catch (e) {
       ctx.badRequest({ message: e.message })
     }
+    console.log("voici la l'anime avec votre id ")
+    console.log(list)
   }
