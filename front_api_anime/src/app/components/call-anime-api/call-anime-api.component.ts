@@ -17,7 +17,7 @@ export class CallAnimeApiComponent implements OnInit {
   }
   
   addlist(anime: any) {
-    console.log(anime);
+    console.log("add api anime on bd");
     this.implementApiAnime.addAnimeOnDB({
       idAPI: anime.mal_id,
       images: anime.images.jpg.small_image_url,

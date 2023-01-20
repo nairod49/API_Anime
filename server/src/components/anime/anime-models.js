@@ -9,7 +9,7 @@ const animeSchema = new Schema({
     required: true
  },
  //images/jpg/url
-    image: {
+    images: {
     type:String
  },
  //title

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { ImplementApiAnimeService } from 'src/app/services/implement-api-anime.service';
@@ -18,5 +19,12 @@ export class AnimeComponent implements OnInit  {
       this.id = params.get('id');
     });
     this.anime = await lastValueFrom(this.implementApiAnime.getAnime(this.id))
+  }
+
+  addToCountry(lng: any, lat: any, idAnime: string){
+    console.log(lng,lat,idAnime);
+    this.implementApiAnime.updateAnime(idAnime, lng, lat);
+    console.log("anime add to country");
+    
   }
 }

@@ -47,11 +47,35 @@ export async function index (ctx) {
   export async function id (ctx) {
     try {
       if(ctx.params.id.length <= 0) return ctx.notFound({ message: 'Id missing, list ressource not found' })
-      const list = await Anime.findById(ctx.params.id)
-      ctx.ok(list)
+      const anime = await Anime.findById(ctx.params.id)
+      ctx.ok(anime)
     } catch (e) {
       ctx.badRequest({ message: e.message })
     }
     console.log("voici la l'anime avec votre id ")
-    console.log(list)
+  }
+
+  export async function update (ctx) {
+    try {
+      const animeValidationSchema = Joi.object({
+        longitude:Joi.number().required(),
+        latitude:Joi.number().required()
+      })
+      const { error, value } = animeValidationSchema.validate(ctx.request.body)
+      if(error) throw new Error(error)
+      
+      const updateAnime = await Anime.findByIdAndUpdate(ctx.params.id, value, { runValidators: true, new: true })
+      ctx.ok(updateAnime)
+    } catch (e) {
+      ctx.badRequest({ message: e.message })
+    }
+  }
+
+  export async function del (ctx) {
+    try {
+      await Anime.findByIdAndDelete(ctx.params.id)
+      ctx.ok()
+    } catch (error) {
+      ctx.badRequest({ message: e.message })
+    }
   }

@@ -30,4 +30,10 @@ export class ImplementApiAnimeService {
   getAnime(id: any) {
       return this.httpclient.get(`${environment.apiAnime}/animes/${id}`)
   }
+
+  updateAnime(id: string, lng: any, lat: any){
+    const headers = { 'content-type': 'application/json'} 
+    const body = {longitude: lng, latitude: lat};
+    return this.httpclient.put(`${environment.apiAnime}/animes/${id}`, body).subscribe(data => {body})
+  }
 }

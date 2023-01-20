@@ -28,15 +28,22 @@ export class MapsComponent implements AfterViewInit {
     tiles.addTo(this.map);
   }
 
-  private ajoutanime(map: L.Map | L.LayerGroup<any>,): void{
+  private async ajoutanime(map: L.Map | L.LayerGroup<any>,): Promise<void>{
   
-      this.allDBAnime =  lastValueFrom(this.implementApiAnime.getAnimeDB())
-      let x =this.allDBAnime.longitude
-      let y =this.allDBAnime.latitude
-      let text= this.allDBAnime.title
+      this.allDBAnime = await lastValueFrom(this.implementApiAnime.getAnimeDB())
+
+      this.allDBAnime.forEach((val: any) => {
+        if(val.longitude !== undefined && val.latitude !== undefined){
+          
+          let x = val.longitude
+          let y = val.latitude
+          let text= val.title
+          
+          this.addPoint(map,y,x,text);
+        }
+      });
 
 
-    this.addPoint(map,x,y,text);
 
   }
 
@@ -54,9 +61,7 @@ export class MapsComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initMap();
-   
-  }
 
-  
+  }
 
 }
