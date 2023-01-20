@@ -5,6 +5,7 @@ import respond from 'koa-respond'
 import cors from '@koa/cors'
 import { API_V1_ROUTER } from '#routes/index.js'
 import serve from 'koa-static'
+import morgan from 'morgan'
 
 const app = new Koa()
 
