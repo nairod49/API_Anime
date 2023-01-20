@@ -41,7 +41,7 @@ export async function index (ctx) {
     } catch(e) {
       ctx.badRequest({ message: e.message })
     }
-    console.log("anime ajouté a la base de donnée")
+    console.info("anime ajouté a la base de donnée")
   }
 
   export async function id (ctx) {
@@ -52,7 +52,7 @@ export async function index (ctx) {
     } catch (e) {
       ctx.badRequest({ message: e.message })
     }
-    console.log("voici l'anime avec toute les info ")
+    console.info("voici l'anime avec toute les info ")
   }
 
   export async function update (ctx) {
@@ -69,6 +69,7 @@ export async function index (ctx) {
     } catch (e) {
       ctx.badRequest({ message: e.message })
     }
+    console.info("anime modifier")
   }
 
   export async function del (ctx) {
@@ -78,4 +79,5 @@ export async function index (ctx) {
     } catch (error) {
       ctx.badRequest({ message: e.message })
     }
+    console.info("anime supprimer")
   }
