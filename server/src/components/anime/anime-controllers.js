@@ -9,13 +9,14 @@ export async function index (ctx) {
     } catch(e) {
       ctx.badRequest({ message: e.message })
     }
+    console.log("Affichage de tout les animes")
   }
 
   export async function create (ctx) {
     try {
       console.log(ctx.request.body)
       const animeValidationSchema = Joi.object({
-        id: Joi.string().required(),
+        idAPI: Joi.number(),
         images: Joi.string().required(),
         title: Joi.string().required(),
         episode: Joi.number().required(),
@@ -27,9 +28,12 @@ export async function index (ctx) {
         rank:Joi.number(),
         synopsis:Joi.string(),
         streaming:Joi.string(),
+        longitude:Joi.number(),
+        latitude:Joi.number()
       })
   
       const { error, value } = animeValidationSchema.validate(ctx.request.body)
+      
       if(error) throw new Error(error)
       console.log('No error found continuing the process', value);
       const newanime = await Anime.create(value)
@@ -37,4 +41,43 @@ export async function index (ctx) {
     } catch(e) {
       ctx.badRequest({ message: e.message })
     }
+    console.info("anime ajouté a la base de donnée")
+  }
+
+  export async function id (ctx) {
+    try {
+      if(ctx.params.id.length <= 0) return ctx.notFound({ message: 'Id missing, list ressource not found' })
+      const anime = await Anime.findById(ctx.params.id)
+      ctx.ok(anime)
+    } catch (e) {
+      ctx.badRequest({ message: e.message })
+    }
+    console.info("voici l'anime avec toute les info ")
+  }
+
+  export async function update (ctx) {
+    try {
+      const animeValidationSchema = Joi.object({
+        longitude:Joi.number().required(),
+        latitude:Joi.number().required()
+      })
+      const { error, value } = animeValidationSchema.validate(ctx.request.body)
+      if(error) throw new Error(error)
+      
+      const updateAnime = await Anime.findByIdAndUpdate(ctx.params.id, value, { runValidators: true, new: true })
+      ctx.ok(updateAnime)
+    } catch (e) {
+      ctx.badRequest({ message: e.message })
+    }
+    console.info("anime modifier")
+  }
+
+  export async function del (ctx) {
+    try {
+      await Anime.findByIdAndDelete(ctx.params.id)
+      ctx.ok()
+    } catch (error) {
+      ctx.badRequest({ message: e.message })
+    }
+    console.info("anime supprimer")
   }

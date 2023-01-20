@@ -7,6 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './shared/footer/footer.component';
+import { MapsComponent } from './components/maps/maps.component';
+import { ListAnimeComponent } from './components/list-anime/list-anime.component';
+import { AnimeComponent } from './components/anime/anime.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +17,9 @@ import { FooterComponent } from './shared/footer/footer.component';
     CallAnimeApiComponent,
     NavbarComponent,
     FooterComponent,
+    MapsComponent,
+    ListAnimeComponent,
+    AnimeComponent,
   ],
   imports: [
     BrowserModule,

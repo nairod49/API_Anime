@@ -1,0 +1,27 @@
+<div class="container">
+    <table class="table table-striped" >
+        <thead>
+            <tr>
+                <td>
+                    title
+                </td>
+                <td>
+                    status
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let animeDB of allDBAnime">
+                <td>
+                    {{ animeDB.title}}
+                </td>
+                <td>
+                    {{ animeDB.statut}}
+                </td>
+                <td>
+                    <a href="/list/anime/{{animeDB._id}}" class="btn btn-info"> view </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

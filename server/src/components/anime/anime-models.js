@@ -4,12 +4,12 @@ const { Schema } = mongoose
 
 const animeSchema = new Schema({
  //mal_id
-    id: {
-    type:String,
+    idAPI: {
+    type:Number,
     required: true
  },
  //images/jpg/url
-    image: {
+    images: {
     type:String
  },
  //title
@@ -51,7 +51,14 @@ const animeSchema = new Schema({
 //streaming/?
     streaming:{
         type:String
+    },
+    longitude:{
+        type:Number
+    },
+    latitude:{
+        type:Number
     }
+
 
 })
 
