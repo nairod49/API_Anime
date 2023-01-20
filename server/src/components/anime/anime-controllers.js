@@ -9,7 +9,7 @@ export async function index (ctx) {
     } catch(e) {
       ctx.badRequest({ message: e.message })
     }
-    console.log("Afficheage de tout les anime")
+    console.log("Affichage de tout les animes")
   }
 
   export async function create (ctx) {
@@ -41,7 +41,7 @@ export async function index (ctx) {
     } catch(e) {
       ctx.badRequest({ message: e.message })
     }
-    console.log("anime ajouter a la base de donnée")
+    console.log("anime ajouté a la base de donnée")
   }
 
   export async function id (ctx) {
@@ -52,7 +52,7 @@ export async function index (ctx) {
     } catch (e) {
       ctx.badRequest({ message: e.message })
     }
-    console.log("voici la l'anime avec votre id ")
+    console.log("voici l'anime avec toute les info ")
   }
 
   export async function update (ctx) {
